@@ -1,3 +1,24 @@
+# Expense App - Spring Boot
+
+Simple Spring Boot backend to track shared expenses among friends.
+
+Build and run:
+
+```bash
+mvn clean package
+docker build -t expense-app .
+docker run -p 8080:8080 expense-app
+```
+
+APIs:
+
+- POST /users  { "name": "Alice" }
+- GET /users
+- POST /expenses  { "description":"Dinner","amount":120.00,"date":"2026-03-01","participantIds":[1,2,3] }
+- GET /expenses
+- GET /expenses/{id}/split -> returns map of "{id:name}" -> amount owed
+
+H2 console: http://localhost:8080/h2-console (jdbc url: jdbc:h2:mem:expensedb)
 # Try Out Development Containers: Python
 
 [![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/microsoft/vscode-remote-try-python)
